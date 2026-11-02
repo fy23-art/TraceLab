@@ -1,0 +1,21 @@
+# Adds automatic HTTPS in front of the stack:
+#   docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
+# Requires DOMAIN in .env to point at this machine, and ports 80/443 open.
+# Also set WEB_BIND=127.0.0.1 in .env so the plain-HTTP dashboard port is not exposed publicly.
+services:
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    environment:
+      DOMAIN: ${DOMAIN:?set DOMAIN in .env}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+    depends_on:
+      - web
+
+volumes:
+  caddy_data:
