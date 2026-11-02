@@ -1,13 +1,5 @@
 # TraceLab
 
-**See why your API calls fail, and fix them with one click.**
-
-TraceLab is an API reliability and replay platform. You hand it an HTTP request; it delivers the request in the
-background, retries failures with exponential backoff, records every attempt, and parks requests that never succeed
-in a dead-letter queue. A dashboard shows latency, error rates and a timeline of each request's attempts, and any
-request can be replayed with a click.
-
-![status](https://img.shields.io/badge/backend-FastAPI-009688) ![status](https://img.shields.io/badge/frontend-React-61dafb) ![status](https://img.shields.io/badge/database-PostgreSQL-336791)
 
 ## Contents
 
